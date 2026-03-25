@@ -6,24 +6,28 @@ import SectionReveal from '../components/SectionReveal';
 
 function EarningsBar({ earning }: { earning: string }) {
   const parseRange = (s: string): [number, number] => {
-    const nums = s.match(/[\d.]+/g);
+    // Remove dots (thousand separators) before parsing
+    const cleaned = s.replace(/\./g, '');
+    const nums = cleaned.match(/\d+/g);
     if (!nums || nums.length < 2) return [0, 100];
-    return [parseFloat(nums[0]), parseFloat(nums[1])];
+    return [parseInt(nums[0]), parseInt(nums[1])];
   };
 
+  const isVariable = earning.includes('Variabel');
   const [min, max] = parseRange(earning);
   const maxScale = 20000;
-  const widthPercent = Math.min((max / maxScale) * 100, 100);
+  const widthPercent = isVariable ? 50 : Math.min((max / maxScale) * 100, 100);
 
   return (
     <div className="w-full">
       <div className="flex justify-between text-sm text-gray-400 mb-2">
-        <span>{earning.includes('Variabel') ? 'Variabel' : `€${min.toLocaleString('nl-NL')}`}</span>
-        {!earning.includes('Variabel') && <span>€{max.toLocaleString('nl-NL')}</span>}
+        <span>{isVariable ? 'Variabel' : `€${min.toLocaleString('nl-NL')}`}</span>
+        {!isVariable && <span>€{max.toLocaleString('nl-NL')}</span>}
       </div>
-      <div className="w-full h-3 rounded-full bg-gray-100 overflow-hidden">
+      <div className="w-full h-3 rounded-full overflow-hidden" style={{ background: '#f3f4f6' }}>
         <motion.div
-          className="h-full rounded-full bg-gradient-to-r from-purple-600 to-purple-400"
+          className="h-full rounded-full"
+          style={{ background: 'linear-gradient(to right, #7c3aed, #a78bfa)' }}
           initial={{ width: 0 }}
           whileInView={{ width: `${widthPercent}%` }}
           viewport={{ once: true }}
