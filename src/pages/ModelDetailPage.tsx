@@ -1,14 +1,10 @@
 import { useParams, Navigate, Link } from 'react-router-dom';
-import { motion, useInView } from 'motion/react';
-import { useRef } from 'react';
+import { motion } from 'motion/react';
 import { Check, X as XIcon, ArrowRight } from 'lucide-react';
 import { models, CALENDLY_URL } from '../data/models';
 import SectionReveal from '../components/SectionReveal';
 
 function EarningsBar({ earning }: { earning: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true });
-
   const parseRange = (s: string): [number, number] => {
     const nums = s.match(/[\d.]+/g);
     if (!nums || nums.length < 2) return [0, 100];
@@ -20,7 +16,7 @@ function EarningsBar({ earning }: { earning: string }) {
   const widthPercent = Math.min((max / maxScale) * 100, 100);
 
   return (
-    <div ref={ref} className="w-full">
+    <div className="w-full">
       <div className="flex justify-between text-sm text-gray-400 mb-2">
         <span>{earning.includes('Variabel') ? 'Variabel' : `€${min.toLocaleString('nl-NL')}`}</span>
         {!earning.includes('Variabel') && <span>€{max.toLocaleString('nl-NL')}</span>}
@@ -29,7 +25,8 @@ function EarningsBar({ earning }: { earning: string }) {
         <motion.div
           className="h-full rounded-full bg-gradient-to-r from-purple-600 to-purple-400"
           initial={{ width: 0 }}
-          animate={isInView ? { width: `${widthPercent}%` } : { width: 0 }}
+          whileInView={{ width: `${widthPercent}%` }}
+          viewport={{ once: true }}
           transition={{ duration: 1.2, ease: [0.25, 0.4, 0.25, 1] }}
         />
       </div>
