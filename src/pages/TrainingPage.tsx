@@ -48,11 +48,11 @@ export default function TrainingPage() {
       {/* Hero */}
       <section className="pt-32 pb-20 px-6 text-center">
         <SectionReveal>
-          <p className="text-xs uppercase tracking-[0.25em] text-emerald-500 mb-4 font-semibold">Het programma</p>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-[-0.04em] leading-[1.05] mb-6">
+          <p className="text-xs uppercase tracking-[0.25em] text-purple-600 mb-4 font-semibold">Het programma</p>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-[-0.04em] leading-[1.05] mb-6 text-gray-900">
             5 modules. Eén route<br className="hidden md:block" /> naar resultaat.
           </h1>
-          <p className="text-lg text-white/50 max-w-xl mx-auto">
+          <p className="text-lg text-gray-500 max-w-xl mx-auto">
             Stap voor stap leer je alles wat je nodig hebt om jouw gekozen model winstgevend te maken.
           </p>
         </SectionReveal>
@@ -64,17 +64,17 @@ export default function TrainingPage() {
           {modules.map((mod, i) => (
             <SectionReveal key={mod.num} delay={i * 0.1}>
               <div className="glass-card p-8 md:p-12 grid grid-cols-1 md:grid-cols-[auto_1fr] gap-8 items-start">
-                <div className="text-8xl md:text-[120px] font-extrabold leading-none text-transparent bg-clip-text bg-gradient-to-b from-emerald-500/30 to-emerald-500/5 select-none">
+                <div className="text-8xl md:text-[120px] font-extrabold leading-none text-transparent bg-clip-text bg-gradient-to-b from-purple-300 to-purple-100 select-none">
                   {mod.num}
                 </div>
                 <div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">{mod.name}</h3>
-                  <p className="text-white/50 mb-6">{mod.description}</p>
+                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">{mod.name}</h3>
+                  <p className="text-gray-500 mb-6">{mod.description}</p>
                   <div className="space-y-3">
                     {mod.bullets.map((b) => (
                       <div key={b} className="flex items-start gap-3">
-                        <Check className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
-                        <span className="text-sm text-white/60">{b}</span>
+                        <Check className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
+                        <span className="text-sm text-gray-600">{b}</span>
                       </div>
                     ))}
                   </div>
@@ -92,7 +92,7 @@ export default function TrainingPage() {
             <SectionReveal key={f.title} delay={i * 0.1}>
               <div className="glass-card p-8 text-center">
                 <div className="text-4xl mb-4">{f.icon}</div>
-                <p className="font-semibold text-white">{f.title}</p>
+                <p className="font-semibold text-gray-900">{f.title}</p>
               </div>
             </SectionReveal>
           ))}
@@ -103,16 +103,16 @@ export default function TrainingPage() {
       <section className="py-24 px-6">
         <SectionReveal>
           <div className="max-w-4xl mx-auto text-center rounded-3xl p-12 md:p-20"
-            style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.1) 0%, rgba(16,185,129,0.03) 100%)' }}
+            style={{ background: 'linear-gradient(135deg, rgba(139,92,246,0.08) 0%, rgba(139,92,246,0.02) 100%)' }}
           >
-            <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">Klaar om te starten?</h2>
-            <p className="text-lg text-white/50 mb-8 max-w-lg mx-auto">
+            <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 text-gray-900">Klaar om te starten?</h2>
+            <p className="text-lg text-gray-500 mb-8 max-w-lg mx-auto">
               Boek je gratis kickstart call en ontdek welk model bij jou past.
             </p>
             <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary text-lg">
               Boek Nu Gratis Kickstart Call
             </a>
-            <p className="text-sm text-white/30 mt-6">100% gratis &middot; Geen verplichtingen &middot; Duurt 30 minuten</p>
+            <p className="text-sm text-gray-400 mt-6">100% gratis &middot; Geen verplichtingen &middot; Duurt 30 minuten</p>
           </div>
         </SectionReveal>
       </section>

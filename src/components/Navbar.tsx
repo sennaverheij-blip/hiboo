@@ -28,20 +28,20 @@ export default function Navbar() {
         style={{
           backdropFilter: scrolled ? 'blur(20px)' : 'none',
           WebkitBackdropFilter: scrolled ? 'blur(20px)' : 'none',
-          background: scrolled ? 'rgba(0,0,0,0.75)' : 'transparent',
-          borderBottom: scrolled ? '1px solid rgba(255,255,255,0.06)' : '1px solid transparent',
+          background: scrolled ? 'rgba(255,255,255,0.85)' : 'transparent',
+          borderBottom: scrolled ? '1px solid rgba(0,0,0,0.06)' : '1px solid transparent',
         }}
       >
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link to="/" className="text-xl font-bold tracking-tight text-white" style={{ fontFamily: 'var(--font-display)' }}>
-            HIBO<span className="relative">O<span className="absolute -right-2.5 top-0.5 w-1.5 h-1.5 rounded-full bg-emerald-500" /></span>
+          <Link to="/" className="text-xl font-bold tracking-tight text-gray-900" style={{ fontFamily: 'var(--font-display)' }}>
+            HIBO<span className="relative">O<span className="absolute -right-2.5 top-0.5 w-1.5 h-1.5 rounded-full bg-purple-600" /></span>
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
-            <Link to="/" className="text-sm text-white/60 hover:text-white transition-colors">Home</Link>
-            <Link to="/training" className="text-sm text-white/60 hover:text-white transition-colors">Training</Link>
+            <Link to="/" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">Home</Link>
+            <Link to="/training" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">Training</Link>
             <div className="relative" onMouseEnter={() => setModelsOpen(true)} onMouseLeave={() => setModelsOpen(false)}>
-              <button className="text-sm text-white/60 hover:text-white transition-colors flex items-center gap-1">
+              <button className="text-sm text-gray-500 hover:text-gray-900 transition-colors flex items-center gap-1">
                 Modellen <ChevronDown className="w-3.5 h-3.5" />
               </button>
               <AnimatePresence>
@@ -57,7 +57,7 @@ export default function Navbar() {
                       <Link
                         key={m.slug}
                         to={`/model/${m.slug}`}
-                        className="flex items-center gap-3 px-3 py-2 rounded-xl text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors"
+                        className="flex items-center gap-3 px-3 py-2 rounded-xl text-sm text-gray-600 hover:text-gray-900 hover:bg-black/[0.03] transition-colors"
                       >
                         <span>{m.icon}</span>
                         <span>{m.name}</span>
@@ -67,7 +67,7 @@ export default function Navbar() {
                 )}
               </AnimatePresence>
             </div>
-            <Link to="/contact" className="text-sm text-white/60 hover:text-white transition-colors">Contact</Link>
+            <Link to="/contact" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">Contact</Link>
           </div>
 
           <div className="hidden md:block">
@@ -76,7 +76,7 @@ export default function Navbar() {
             </a>
           </div>
 
-          <button className="md:hidden text-white" onClick={() => setMobileOpen(!mobileOpen)}>
+          <button className="md:hidden text-gray-900" onClick={() => setMobileOpen(!mobileOpen)}>
             {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
@@ -89,7 +89,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-40 md:hidden"
-            style={{ background: 'rgba(0,0,0,0.9)', backdropFilter: 'blur(20px)' }}
+            style={{ background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(20px)' }}
           >
             <div className="flex flex-col items-center justify-center h-full gap-6">
               {[
@@ -103,19 +103,19 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
                 >
-                  <Link to={link.to} className="text-2xl font-semibold text-white">
+                  <Link to={link.to} className="text-2xl font-semibold text-gray-900">
                     {link.label}
                   </Link>
                 </motion.div>
               ))}
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
-                <p className="text-sm text-white/40 mb-3 text-center">Modellen</p>
+                <p className="text-sm text-gray-400 mb-3 text-center">Modellen</p>
                 <div className="flex flex-wrap justify-center gap-2 max-w-xs">
                   {models.map((m) => (
                     <Link
                       key={m.slug}
                       to={`/model/${m.slug}`}
-                      className="text-sm px-3 py-1.5 rounded-full bg-white/5 text-white/70 hover:text-white"
+                      className="text-sm px-3 py-1.5 rounded-full bg-black/[0.04] text-gray-600 hover:text-gray-900"
                     >
                       {m.icon} {m.name}
                     </Link>
