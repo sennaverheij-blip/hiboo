@@ -32,8 +32,8 @@ function HeroSection() {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden">
       {/* Grid pattern */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{
-        backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.5) 1px, transparent 1px)',
+      <div className="absolute inset-0 opacity-[0.04]" style={{
+        backgroundImage: 'radial-gradient(circle, rgba(0,0,0,0.3) 1px, transparent 1px)',
         backgroundSize: '40px 40px',
       }} />
 
@@ -41,7 +41,7 @@ function HeroSection() {
       <motion.div
         className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full"
         style={{
-          background: 'radial-gradient(circle, rgba(16,185,129,0.15) 0%, transparent 60%)',
+          background: 'radial-gradient(circle, rgba(139,92,246,0.1) 0%, transparent 60%)',
           x: mouseX,
           y: mouseY,
         }}
@@ -49,7 +49,7 @@ function HeroSection() {
       <motion.div
         className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] rounded-full"
         style={{
-          background: 'radial-gradient(circle, rgba(52,211,153,0.08) 0%, transparent 50%)',
+          background: 'radial-gradient(circle, rgba(167,139,250,0.06) 0%, transparent 50%)',
           x: useTransform(mouseX, v => -v),
           y: useTransform(mouseY, v => -v),
         }}
@@ -60,12 +60,12 @@ function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-xs uppercase tracking-[0.25em] text-emerald-500 mb-6 font-semibold"
+          className="text-xs uppercase tracking-[0.25em] text-purple-600 mb-6 font-semibold"
         >
           Het #1 platform voor online ondernemers
         </motion.p>
 
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-[1.05] tracking-[-0.04em] mb-8">
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-[1.05] tracking-[-0.04em] mb-8 text-gray-900">
           {words.map((word, i) => (
             <motion.span
               key={i}
@@ -84,7 +84,7 @@ function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-lg md:text-xl text-white/60 max-w-[520px] mx-auto mb-10"
+          className="text-lg md:text-xl text-gray-500 max-w-[520px] mx-auto mb-10"
         >
           Ontdek de 10 bewezen online verdienmodellen die gewone Nederlanders gebruiken om financieel vrij te worden.
         </motion.p>
@@ -107,18 +107,18 @@ function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
-          className="flex items-center justify-center gap-3 text-sm text-white/50"
+          className="flex items-center justify-center gap-3 text-sm text-gray-400"
         >
           <div className="flex -space-x-2">
             {['SB', 'IM', 'IN', 'DS', 'YV'].map((initials, i) => (
-              <div key={i} className="w-8 h-8 rounded-full bg-white/10 border-2 border-black flex items-center justify-center text-xs text-white/60 font-medium">
+              <div key={i} className="w-8 h-8 rounded-full bg-purple-100 border-2 border-white flex items-center justify-center text-xs text-purple-600 font-medium">
                 {initials}
               </div>
             ))}
           </div>
           <div className="flex items-center gap-1">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-3.5 h-3.5 fill-yellow-500 text-yellow-500" />
+              <Star key={i} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
             ))}
           </div>
           <span>Meer dan 500 studenten gestart</span>
@@ -132,7 +132,7 @@ function HeroSection() {
           exit={{ opacity: 0 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2"
         >
-          <ChevronDown className="w-6 h-6 text-white/30 animate-bounce-down" />
+          <ChevronDown className="w-6 h-6 text-gray-300 animate-bounce-down" />
         </motion.div>
       )}
     </section>
@@ -142,7 +142,7 @@ function HeroSection() {
 function StatsSection() {
   return (
     <SectionReveal>
-      <div className="border-y border-white/[0.06] bg-white/[0.02]">
+      <div className="border-y border-black/[0.06] bg-gray-50/50">
         <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
             { value: 500, suffix: '+', label: 'Studenten gestart' },
@@ -151,16 +151,16 @@ function StatsSection() {
             { value: 4.9, label: 'Gemiddelde beoordeling', isStar: true },
           ].map((stat, i) => (
             <div key={i} className="text-center">
-              <p className="text-3xl md:text-4xl font-bold text-white mb-2">
+              <p className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
                 {stat.isStar ? (
                   <span className="flex items-center justify-center gap-1">
-                    4.9 <Star className="w-6 h-6 fill-yellow-500 text-yellow-500" />
+                    4.9 <Star className="w-6 h-6 fill-yellow-400 text-yellow-400" />
                   </span>
                 ) : (
                   <CountUp end={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
                 )}
               </p>
-              <p className="text-sm text-white/40">{stat.label}</p>
+              <p className="text-sm text-gray-400">{stat.label}</p>
             </div>
           ))}
         </div>
@@ -174,9 +174,9 @@ function ModelsSection() {
     <section className="py-24 px-6">
       <div className="max-w-7xl mx-auto">
         <SectionReveal className="text-center mb-16">
-          <p className="text-xs uppercase tracking-[0.25em] text-emerald-500 mb-4 font-semibold">10 Verdienmodellen</p>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">Kies jouw weg naar financiële vrijheid.</h2>
-          <p className="text-lg text-white/50 max-w-xl mx-auto">
+          <p className="text-xs uppercase tracking-[0.25em] text-purple-600 mb-4 font-semibold">10 Verdienmodellen</p>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-gray-900">Kies jouw weg naar financiële vrijheid.</h2>
+          <p className="text-lg text-gray-500 max-w-xl mx-auto">
             Van complete beginner tot ambitieuze ondernemer — er is een model dat perfect bij jou past.
           </p>
         </SectionReveal>
@@ -187,13 +187,13 @@ function ModelsSection() {
               <Link to={`/model/${model.slug}`} className="block">
                 <div className="glass-card p-6 h-full">
                   <div className="text-3xl mb-4">{model.icon}</div>
-                  <h3 className="text-lg font-semibold text-white mb-2">{model.name}</h3>
-                  <p className="text-sm text-white/50 mb-4">{model.description}</p>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{model.name}</h3>
+                  <p className="text-sm text-gray-500 mb-4">{model.description}</p>
                   <div className="flex flex-wrap gap-2">
-                    <span className="text-xs px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    <span className="text-xs px-3 py-1 rounded-full bg-purple-50 text-purple-600 border border-purple-100">
                       {model.earning}
                     </span>
-                    <span className="text-xs px-3 py-1 rounded-full bg-white/5 text-white/50 border border-white/10">
+                    <span className="text-xs px-3 py-1 rounded-full bg-gray-50 text-gray-500 border border-gray-100">
                       {model.difficulty}
                     </span>
                   </div>
@@ -229,37 +229,38 @@ function StickyScrollSection() {
     <section ref={containerRef} className="relative" style={{ height: '400vh' }}>
       <div className="sticky top-0 h-screen flex items-center overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div>
+          {/* Left: stacked headlines, only the active one is visible */}
+          <div className="relative min-h-[200px]">
             {features.map((f, i) => (
               <motion.div
                 key={i}
                 initial={false}
                 animate={{ opacity: current === i ? 1 : 0, y: current === i ? 0 : 20 }}
                 transition={{ duration: 0.5 }}
-                className="absolute"
-                style={{ display: current === i ? 'block' : 'none' }}
+                className={current === i ? 'relative' : 'absolute inset-0 pointer-events-none'}
               >
                 <div className="text-6xl mb-6">{f.icon}</div>
-                <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white">{f.headline}</h2>
+                <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-gray-900">{f.headline}</h2>
               </motion.div>
             ))}
           </div>
 
-          <div>
+          {/* Right: stacked cards, only the active one is visible */}
+          <div className="relative min-h-[280px]">
             {features.map((f, i) => (
               <motion.div
                 key={i}
                 initial={false}
                 animate={{ opacity: current === i ? 1 : 0, y: current === i ? 0 : 30 }}
                 transition={{ duration: 0.5 }}
-                style={{ display: current === i ? 'block' : 'none' }}
+                className={current === i ? 'relative' : 'absolute inset-0 pointer-events-none'}
               >
                 <div className="glass-card p-8">
-                  <p className="text-emerald-500 text-sm font-bold mb-2">{f.num}</p>
-                  <h3 className="text-2xl font-bold text-white mb-4">{f.title}</h3>
-                  <p className="text-white/60 mb-6">{f.desc}</p>
-                  <div className="glass-card !bg-emerald-500/5 p-4 !border-emerald-500/20">
-                    <p className="text-emerald-400 text-sm font-medium">{f.detail}</p>
+                  <p className="text-purple-600 text-sm font-bold mb-2">{f.num}</p>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{f.title}</h3>
+                  <p className="text-gray-500 mb-6">{f.desc}</p>
+                  <div className="glass-card !bg-purple-50 p-4 !border-purple-100">
+                    <p className="text-purple-600 text-sm font-medium">{f.detail}</p>
                   </div>
                 </div>
               </motion.div>
@@ -279,20 +280,20 @@ function FounderSection() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="flex justify-center">
               <div className="relative">
-                <div className="absolute inset-0 rounded-2xl bg-emerald-500/20 blur-3xl" />
-                <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 border-2 border-emerald-500/30 flex items-center justify-center">
+                <div className="absolute inset-0 rounded-2xl bg-purple-200/40 blur-3xl" />
+                <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-2xl bg-gradient-to-br from-purple-100 to-purple-50 border-2 border-purple-200 flex items-center justify-center">
                   <span className="text-8xl">👨‍💼</span>
                 </div>
               </div>
             </div>
 
             <div>
-              <p className="text-xs uppercase tracking-[0.25em] text-emerald-500 mb-4 font-semibold">Oprichter & Mentor</p>
-              <h2 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">Faris</h2>
-              <blockquote className="text-2xl md:text-3xl font-light italic text-white/80 mb-6 leading-snug">
+              <p className="text-xs uppercase tracking-[0.25em] text-purple-600 mb-4 font-semibold">Oprichter & Mentor</p>
+              <h2 className="text-5xl md:text-6xl font-bold tracking-tight mb-6 text-gray-900">Faris</h2>
+              <blockquote className="text-2xl md:text-3xl font-light italic text-gray-700 mb-6 leading-snug">
                 "Ik heb de fouten al gemaakt. Jij hoeft dat niet."
               </blockquote>
-              <p className="text-white/50 mb-8 leading-relaxed">
+              <p className="text-gray-500 mb-8 leading-relaxed">
                 Faris is een ervaren online ondernemer die alle 10 verdienmodellen persoonlijk heeft getest en geperfectioneerd.
                 Met meer dan 500 studenten begeleid, heeft hij HIBOO gebouwd vanuit zijn eigen ervaring — zodat jij sneller, slimmer en met minder fouten kunt starten.
               </p>
@@ -303,8 +304,8 @@ function FounderSection() {
                   { num: '10', label: 'Modellen beheerst' },
                 ].map((s) => (
                   <div key={s.label}>
-                    <p className="text-2xl font-bold text-emerald-500">{s.num}</p>
-                    <p className="text-xs text-white/40">{s.label}</p>
+                    <p className="text-2xl font-bold text-purple-600">{s.num}</p>
+                    <p className="text-xs text-gray-400">{s.label}</p>
                   </div>
                 ))}
               </div>
@@ -318,10 +319,10 @@ function FounderSection() {
 
 function TestimonialsSection() {
   return (
-    <section className="py-24 px-6">
+    <section className="py-24 px-6 bg-gray-50/50">
       <div className="max-w-7xl mx-auto">
         <SectionReveal className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Echte resultaten van echte studenten.</h2>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900">Echte resultaten van echte studenten.</h2>
         </SectionReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -329,16 +330,16 @@ function TestimonialsSection() {
             <SectionReveal key={t.name} delay={i * 0.1}>
               <div className="glass-card p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-sm">
+                  <div className="w-12 h-12 rounded-full bg-purple-100 border border-purple-200 flex items-center justify-center text-purple-600 font-bold text-sm">
                     {t.name.split(' ').map(n => n[0]).join('')}
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-white">{t.name}</p>
-                    <p className="text-xs text-white/40">{t.model}</p>
+                    <p className="text-sm font-semibold text-gray-900">{t.name}</p>
+                    <p className="text-xs text-gray-400">{t.model}</p>
                   </div>
                 </div>
-                <p className="text-2xl font-bold text-emerald-400 mb-3">{t.result}</p>
-                <p className="text-sm text-white/50">{t.text}</p>
+                <p className="text-2xl font-bold text-purple-600 mb-3">{t.result}</p>
+                <p className="text-sm text-gray-500">{t.text}</p>
               </div>
             </SectionReveal>
           ))}
@@ -366,7 +367,7 @@ function FAQSection() {
     <section className="py-24 px-6">
       <div className="max-w-3xl mx-auto">
         <SectionReveal className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">Veelgestelde vragen</h2>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-gray-900">Veelgestelde vragen</h2>
         </SectionReveal>
 
         <div className="space-y-3">
@@ -377,16 +378,16 @@ function FAQSection() {
                   onClick={() => setOpenIndex(openIndex === i ? null : i)}
                   className="w-full px-6 py-5 flex items-center justify-between text-left"
                 >
-                  <span className="font-medium text-white pr-4">{faq.q}</span>
+                  <span className="font-medium text-gray-900 pr-4">{faq.q}</span>
                   <ChevronDown
-                    className={`w-5 h-5 text-white/40 shrink-0 transition-transform duration-300 ${openIndex === i ? 'rotate-180' : ''}`}
+                    className={`w-5 h-5 text-gray-400 shrink-0 transition-transform duration-300 ${openIndex === i ? 'rotate-180' : ''}`}
                   />
                 </button>
                 <div
                   className="overflow-hidden transition-all duration-300"
                   style={{ maxHeight: openIndex === i ? '200px' : '0px' }}
                 >
-                  <p className="px-6 pb-5 text-sm text-white/50 leading-relaxed">{faq.a}</p>
+                  <p className="px-6 pb-5 text-sm text-gray-500 leading-relaxed">{faq.a}</p>
                 </div>
               </div>
             </SectionReveal>
@@ -402,16 +403,16 @@ function FinalCTASection() {
     <section className="py-24 px-6">
       <SectionReveal>
         <div className="max-w-4xl mx-auto text-center rounded-3xl p-12 md:p-20"
-          style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.1) 0%, rgba(16,185,129,0.03) 100%)' }}
+          style={{ background: 'linear-gradient(135deg, rgba(139,92,246,0.08) 0%, rgba(139,92,246,0.02) 100%)' }}
         >
-          <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">Klaar om te starten?</h2>
-          <p className="text-lg text-white/50 mb-8 max-w-lg mx-auto">
+          <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 text-gray-900">Klaar om te starten?</h2>
+          <p className="text-lg text-gray-500 mb-8 max-w-lg mx-auto">
             Boek je gratis kickstart call en ontdek welk model bij jou past.
           </p>
           <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary text-lg">
             Boek Nu Gratis Kickstart Call
           </a>
-          <p className="text-sm text-white/30 mt-6">100% gratis &middot; Geen verplichtingen &middot; Duurt 30 minuten</p>
+          <p className="text-sm text-gray-400 mt-6">100% gratis &middot; Geen verplichtingen &middot; Duurt 30 minuten</p>
         </div>
       </SectionReveal>
     </section>
