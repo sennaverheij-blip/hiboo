@@ -109,7 +109,7 @@ export default function VSLPage() {
             Bekijk hoe gewone Nederlanders online verdienen
           </h1>
           <p className="text-lg text-gray-500 mb-10">
-            Faris legt in deze video precies uit hoe het werkt.
+            Chanel legt in deze video precies uit hoe het werkt.
           </p>
         </SectionReveal>
 
